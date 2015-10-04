@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1= title
+    div(class='container-fluid',ng-view)
+
+block footer
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/angular-route/angular-route.js')
+    script(src='app/app.js')
+    script(src='app/routes/router.js')
+    script(src='app/services/movieFactory.js')
+    script(src='app/controllers/movieController.js')
+
+

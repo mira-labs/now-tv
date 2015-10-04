@@ -1,0 +1,53 @@
+<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="http://web.static.nowtv.com/ice/5.0.6/ui/images/polyatomic/logos/nowtv-logo.svg" class="logo" alt=""/></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://www.tutorialrepublic.com" target="_blank">Home</a></li>
+                <li><a href="http://www.tutorialrepublic.com/about-us.php" target="_blank">About</a></li>
+                <li><a href="http://www.tutorialrepublic.com/contact-us.php" target="_blank">Contact</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="row list-group">
+    <div class="item  col-xs-4 col-lg-4" ng-repeat="movie in movies" >
+        <div class="thumbnail">
+            <img class="group list-group-image" alt="" />
+            <div class="caption">
+                <h4 class="group inner list-group-item-heading">
+                    {{movie.title}}
+                </h4>
+                <p class="group inner list-group-item-text">
+                    Year: {{movie.year}}</p>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <p class="" ng-if="movie.rating > 0">
+                            Rating <span ng-repeat="n in range(movie.rating)" class="glyphicon glyphicon-star"></span></p>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
