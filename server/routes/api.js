@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var fs = require('fs');
-var path = require('path');
+
+var jsonQuery = require('json-query');
 
 var movieFilePath = require('../data/data.json');
 /* GET movies listing. */
