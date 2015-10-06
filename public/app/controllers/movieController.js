@@ -4,8 +4,9 @@
 
 app.controller('movieController',['$scope','movieFactory',function($scope,movieFactory){
 
-$scope.movies = {};
-$scope.thumbnail ='';
+    $scope.heading = 'Movies';
+    $scope.movies = {};
+    $scope.thumbnail ='';
 
     getMovies();
 
