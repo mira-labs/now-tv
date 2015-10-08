@@ -15,18 +15,24 @@
             </ul>
             <form role="search"
                   class="navbar-form navbar-left ng-scope ng-dirty ng-valid-parse ng-valid ng-valid-minlength">
-                <div class="form-group"><input type="text" ng-model="search" ng-change="searchMovies()" ng-minlength="3"
+                <div class="form-group"><input type="text" ng-model="search" ng-change="searchMovies()"
                                                placeholder="Search"
-                                               class="form-control ng-dirty ng-valid-parse ng-valid ng-valid-minlength ng-touched">
+                                               class="form-contro">
                 </div>
-                <button type="submit" class="glyphicon glyphicon-search"></button>
+                <button type="submit" class="glyphicon glyphicon-search" ng-click="searchMovies()"></button>
+                <div class="form-group"><input type="text" ng-model="search" ng-change="setPerPage()"
+                                               placeholder="Per page"
+                                               class="form-control">
+                </div>
             </form>
         </div>
     </div>
 </nav>
 <div class="row">
     <h2>{{heading}}</h2>
-    <div class="alert alert-info" ng-show="message" role="alert" >{{message}}</div>
+    <div class="alert alert-info" ng-show="message" role="alert" >
+        <span ng-if="movies.length > 0">{{message}}</span>
+        <span ng-if="movies.length == 0">No matching items</span></div>
     <div class="col-sm-6 col-md-4" ng-repeat="movie in movies">
         <div class="thumbnail">
             <img src="http://placehold.it/320x150" alt="">
@@ -60,7 +66,7 @@
                 <!--<p class="pull-right">15 reviews</p>-->
                 <p>&nbsp;
                     <span ng-if="movie.rating > 0">
-                                Rating: <span ng-repeat="n in range(5)">
+                                Rating: <span ng-repeat="n in range">
                                         <span ng-if="n <= movie.rating"
                                               class="glyphicon glyphicon-star  text-warning"></span>
                                         <span ng-if="n > movie.rating"
