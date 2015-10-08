@@ -8,8 +8,14 @@ app.factory('movieFactory',['$http',function($http){
         return $http.get(urlBase);
     };
 
-    movieFactory.getMovie = function (query) {
-        return $http.get(urlBase + '/' + query);
+    movieFactory.search = function (query) {
+        if(query.length >= 3) {
+            return $http.get(urlBase + '/query/' + query);
+         }
+    };
+
+    movieFactory.getTotal = function () {
+        return $http.get(urlBase + '/total');
     };
 
     return movieFactory;

@@ -1,10 +1,39 @@
+<nav id="myNavbar" role="navigation" class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#navbarCollapse" class="navbar-toggle"><span
+                    class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span
+                    class="icon-bar"></span></button>
+            <a href="#" class="navbar-brand"><img
+                    src="http://web.static.nowtv.com/ice/5.0.6/ui/images/polyatomic/logos/nowtv-logo.svg" alt="NowTv"
+                    class="logo"></a></div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="#/about">About</a></li>
+                <li><a href="#/contact">Contact</a></li>
+            </ul>
+            <form role="search"
+                  class="navbar-form navbar-left ng-scope ng-dirty ng-valid-parse ng-valid ng-valid-minlength">
+                <div class="form-group"><input type="text" ng-model="search" ng-change="searchMovies()" ng-minlength="3"
+                                               placeholder="Search"
+                                               class="form-control ng-dirty ng-valid-parse ng-valid ng-valid-minlength ng-touched">
+                </div>
+                <button type="submit" class="glyphicon glyphicon-search"></button>
+            </form>
+        </div>
+    </div>
+</nav>
 <div class="row">
     <h2>{{heading}}</h2>
-    <div class="col-sm-6 col-md-4" ng-repeat="movie in movies | filter:search">
+    <div class="alert alert-info" ng-show="message" role="alert" >{{message}}</div>
+    <div class="col-sm-6 col-md-4" ng-repeat="movie in movies">
         <div class="thumbnail">
             <img src="http://placehold.it/320x150" alt="">
+
             <div class="caption">
                 <h4>{{movie.title}}</h4>
+
                 <div class="well">
                     <div class="info">
                         <span>Year: {{movie.year}}</span>
@@ -23,15 +52,19 @@
                         </span>
                     </div>
                 </div>
-                <p><a href="#" class="btn btn-primary" role="button">Add to watchlist</a> <a href="#" class="btn btn-default" role="button">Watch</a></p>
+                <p><a href="#" class="btn btn-primary" role="button">Add to watchlist</a> <a href="#"
+                                                                                             class="btn btn-default"
+                                                                                             role="button">Watch</a></p>
             </div>
             <div class="ratings">
                 <!--<p class="pull-right">15 reviews</p>-->
                 <p>&nbsp;
                     <span ng-if="movie.rating > 0">
                                 Rating: <span ng-repeat="n in range(5)">
-                                        <span ng-if="n <= movie.rating" class="glyphicon glyphicon-star  text-warning"></span>
-                                        <span ng-if="n > movie.rating" class="glyphicon glyphicon-star-empty  text-warning"></span>
+                                        <span ng-if="n <= movie.rating"
+                                              class="glyphicon glyphicon-star  text-warning"></span>
+                                        <span ng-if="n > movie.rating"
+                                              class="glyphicon glyphicon-star-empty  text-warning"></span>
                                     </span>
                     </span>
                 </p>

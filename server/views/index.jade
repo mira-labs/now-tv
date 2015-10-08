@@ -1,28 +1,6 @@
 extends layout
 
 block content
-    nav(id="myNavbar",class="navbar navbar-default navbar-inverse navbar-fixed-top",role="navigation")
-        div(class="container-fluid")
-            div(class="navbar-header")
-                button(type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse")
-                    span(class="sr-only") Toggle navigation
-                    - for(var x = 1;x <= 3;x++)
-                      span(class="icon-bar")
-                a(class="navbar-brand" href="#")
-                    img(src="http://web.static.nowtv.com/ice/5.0.6/ui/images/polyatomic/logos/nowtv-logo.svg", class="logo" alt="NowTv")
-
-            div(class="collapse navbar-collapse",id="navbarCollapse")
-                ul(class="nav navbar-nav")
-                    li(class="active")
-                        a(href="/") Home
-                    li
-                        a(href="#/about") About
-                    li
-                        a(href="#/contact") Contact
-                form(class="navbar-form navbar-left", role="search")
-                    div(class="form-group")
-                        input(type="text",class="form-control",ng-model="search.title", ng-minlength="3" placeholder="Search")
-                    button(type="submit", class="glyphicon glyphicon-search")
     div(ng-view)
 block footer
     script(src='static/jquery/dist/jquery.js')
