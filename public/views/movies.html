@@ -1,6 +1,6 @@
 <div class="row">
     <h2>{{heading}}</h2>
-    <div class="col-sm-6 col-md-4" ng-repeat="movie in movies">
+    <div class="col-sm-6 col-md-4" ng-repeat="movie in movies | filter:search">
         <div class="thumbnail">
             <img src="http://placehold.it/320x150" alt="">
             <div class="caption">
