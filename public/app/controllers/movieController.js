@@ -9,10 +9,20 @@ app.controller('movieController',['$scope','movieFactory',function($scope,movieF
     $scope.thumbnail ='';
     $scope.total =0;
     $scope.message =false;
+    $scope.perPage =0;
+    $scope.page = 1;
+    $scope.range = new Array();
 
+    range();
     getTotal();
     getMovies();
 
+
+    function range(){
+        for(var x = 1;x<=5;x++){
+            $scope.range.push(x);
+        }
+    }
 
     function getTotal() {
         movieFactory.getTotal()
@@ -20,7 +30,7 @@ app.controller('movieController',['$scope','movieFactory',function($scope,movieF
             $scope.total = response;
         })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load movie data: ' + error.message;
             });
     }
     function getMovies() {
@@ -29,7 +39,7 @@ app.controller('movieController',['$scope','movieFactory',function($scope,movieF
                 $scope.movies = response;
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load movie data: ' + error.message;
             });
     }
 
@@ -40,7 +50,7 @@ app.controller('movieController',['$scope','movieFactory',function($scope,movieF
                 $scope.message = 'Matched '+ $scope.movies.length +' of '+ response.total +' movies total'
             })
             .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
+                $scope.status = 'Unable to load movie data: ' + error.message;
             });
     }
 

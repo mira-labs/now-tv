@@ -11,7 +11,9 @@ app.factory('movieFactory',['$http',function($http){
     movieFactory.search = function (query) {
         if(query.length >= 3) {
             return $http.get(urlBase + '/query/' + query);
-         }
+         }else{
+            this.getMovies();
+        }
     };
 
     movieFactory.getTotal = function () {
